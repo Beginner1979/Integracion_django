@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<main>
+    <div class="main-color-cafe">
+        <h1>Estas seguro que deseas borrar este cafe?</h1>
+        <h2>{{cafe.nombre}}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div>{{form.as_p}}</div>
+            <input type="submit" value="{{ tipo }}" />
+        </form>
+
+        <a href="{% url 'cafe:all' %}">Cancelar</a>
+    </div>
+</main>
+{% endblock %}

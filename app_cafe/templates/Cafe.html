@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="main-color-cafe">
+        <h1>Todos los cafes</h1>
+        <h2><a href="{% url 'cafe:create' %}">CREAR CAFE</a></h2>
+        {% for cafe in cafe_list%}
+        <div class="list">
+            <span>
+                <p>{{forloop.counter}}</p>
+            </span>
+            <span>
+                <p>{{cafe.nombre}}</p>
+            </span>
+            <span>
+                <label for="">Detalle: </label>
+                <a href="{% url 'cafe:detail' cafe.id %}">+</a>
+            </span>
+            <span>
+                <label for="">Editar: </label>
+                <a href="{% url 'cafe:update' cafe.id %}">+</a>
+            </span>
+            <span>
+                <label for="">Borrar: </label>
+                <a href="{% url 'cafe:delete' cafe.id %}">+</a>
+            </span>
+        </div>
+
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
